@@ -15,34 +15,37 @@ import java.util.concurrent.Future;
 public class FutureTaskExample1 {
 
     static class Mycallable implements Callable<String> {
-        public Mycallable(int time){
+        public Mycallable(int time,int flag){
             this.time = time;
+            this.flag =flag;
         }
         private int time ;
+        private int flag;
         @Override
         public String call() throws Exception {
             Thread.sleep(time);
-            log.info("sleep time is {}",time);
-            return "some thing is doing";
+            log.info("sleep time is {} submit{}",time,flag);
+            return "some thing is doing"+time;
         }
     }
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         log.info("this is main");
-        Future<String> submit = executorService.submit(new Mycallable(100));
+        Future<String> submit = executorService.submit(new Mycallable(100,0));
         executorService.execute(()->{
             System.out.println("123123123");
         });
-        Future<String> submit1 = executorService.submit(new Mycallable(100));
-        Future<String> submit2 = executorService.submit(new Mycallable(1000));
-        Future<String> submit3= executorService.submit(new Mycallable(100));
+        Future<String> submit1 = executorService.submit(new Mycallable(100,1));
+        Future<String> submit2 = executorService.submit(new Mycallable(100,2));
+        Future<String> submit3= executorService.submit(new Mycallable(10000,3));
         // 获取结果就必须等待
-        log.info("this is {}",submit.get());
-        log.info("this is {}",submit1.get());
-        log.info("this is {}",submit2.get());
+        log.info("this is {}submit"+0,submit.get());
+        log.info("this is {}submit"+1,submit1.get());
+        log.info("this is {}submit"+2,submit2.get());
         log.info("this is 000000");
-        log.info("this is {}",submit3.get());
+        log.info("this is {}submit"+3,submit3.get());
+        System.out.println("-------------------");
         executorService.shutdown();
     }
 }

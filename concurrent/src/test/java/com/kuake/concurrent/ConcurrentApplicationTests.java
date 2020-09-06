@@ -3,6 +3,7 @@ package com.kuake.concurrent;
 import com.kuake.concurrent.service.ProdectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.omg.SendingContext.RunTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -46,7 +47,6 @@ public class ConcurrentApplicationTests {
 
     @Test
     public void test4(){
-        myRedisTemplate.opsForValue().set("Test:1","his hello world");
-
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 }
