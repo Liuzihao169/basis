@@ -15,27 +15,7 @@ import java.util.Queue;
  */
 public class StringTest {
 
-    @Test
-    public void testLinkedHashMap(){
-        String s3 = new String("a")+new String("a");
-        String intern = s3.intern();
-        String s1 = "aa";
-        System.out.println(s1==s3);
 
-    }
-
-    @Test
-    public void test1(){
-        List  list = new ArrayList(1);
-        //testBooealn(list);
-        System.out.println(list.size());
-    }
-
-    void testBooealn(List b){
-        List<String>a = new ArrayList<>();
-        b.add(1);
-        return;
-    }
 
     @Test
     public void test4(){

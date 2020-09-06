@@ -6,9 +6,18 @@ package datastructure.tree;
  * 树的节点
  */
 public class Tnode {
-    int data;//数据
-    Tnode lchild;//左孩子
-    Tnode rchild;//右孩子
+    /**
+     * 数据
+     */
+    int data;
+    /**
+     * 左孩子
+     */
+    Tnode lchild;
+    /**
+     * 右孩子
+     */
+    Tnode rchild;
 
     public Tnode(int data) {
         this.data = data;

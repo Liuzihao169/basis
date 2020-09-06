@@ -11,6 +11,8 @@ import java.util.Stack;
  * @create 2019/11/24-20:10
  */
 public class TreeNode {
+
+    public TreeNode(){}
     int val;
      TreeNode left;
      TreeNode right;

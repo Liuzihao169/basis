@@ -67,7 +67,8 @@ public class TestTree {
         System.out.println();
         System.out.println("=====层序遍历=====");
         LevelOrder(root);
-        System.out.println("=====深度遍历=====");
+        System.out.println("\n"+"=====深度遍历=====");
+        _DFS(root);
 
     }
 
@@ -325,7 +326,7 @@ public class TestTree {
 
     }
 
-    // leetcode 数独问题36
+    // alg.leetcode 数独问题36
     //
     @Test
     public void test36(){
