@@ -7,8 +7,14 @@ package datastructure.stack;
  * 下面是链式存储
  */
 public class SqStack {
-    private Node top;//栈顶端
-    private Node base;//栈尾
+    /**
+     * 栈顶端
+     */
+    private Node top;
+    /**
+     * 栈尾
+     */
+    private Node base;
 
     //进栈道
     public void push(Object o ){

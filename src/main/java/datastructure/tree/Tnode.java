@@ -9,15 +9,15 @@ public class Tnode {
     /**
      * 数据
      */
-    int data;
+    public int data;
     /**
      * 左孩子
      */
-    Tnode lchild;
+    public Tnode lchild;
     /**
      * 右孩子
      */
-    Tnode rchild;
+    public Tnode rchild;
 
     public Tnode(int data) {
         this.data = data;
