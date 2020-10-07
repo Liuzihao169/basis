@@ -26,7 +26,7 @@ public class Demo12 {
     public void test(){
     String target = "bfce";
     char [][] flag = new char[str.length ][str[0].length];
-        System.out.println("taeget:" +target + _cyc(str, target, flag, new ArrayList<Character>()));
+        System.out.println("taeget:" +target+"\t" + _cyc(str, target, flag, new ArrayList<Character>()));
     }
 
     boolean _cyc(char[][] source, String target, char [][] flag, List<Character> list) {
@@ -57,7 +57,7 @@ public class Demo12 {
         }
         // 找到目标值
         if (source[i][j] == target.charAt(list.size())) {
-            flag[i][j] = 'c';
+            flag[i][j] = '1';
             list.add(source[i][j]);
             // 左 右 下
             if (_findString(source,i,j-1,target,flag,list)
@@ -66,6 +66,7 @@ public class Demo12 {
                 return true;
             }else {
                 flag[i][j] = '\0';
+                list.remove(list.size()-1);
                 return false;
             }
             //下
