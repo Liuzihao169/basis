@@ -22,6 +22,10 @@ public class Demo12 {
             {'c','f','c','s'},
             {'j','d','e','h'} };
 
+    /**
+     * 解题思路：
+     * 遍历回溯、设置falge
+     */
     @Test
     public void test(){
     String target = "bfce";

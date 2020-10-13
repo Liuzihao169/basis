@@ -2,6 +2,7 @@ package com.kuake.config;
 
 import com.kuake.bean.MyBeanDefinitionRegistryPostProcessor;
 import com.kuake.bean.MyBeanFactoryProcess;
+import com.kuake.bean.MyBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,5 +20,9 @@ public class ExtConfig {
     @Bean
     public MyBeanFactoryProcess myBeanFactoryProcess(){
         return new MyBeanFactoryProcess();
+    }
+    @Bean
+    public MyBeanPostProcessor myBeanPostProcessor() {
+        return new MyBeanPostProcessor();
     }
 }
