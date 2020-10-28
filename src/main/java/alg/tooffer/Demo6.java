@@ -12,7 +12,7 @@ import java.util.Stack;
  * 题目六：从到尾打印链表
  * head -> 5 ->10 ->11 -> 15
  */
-public class Demo6 {
+public class Demo6 extends DemoBase{
     /**
      * 解题思路使用额外的存储空间 栈
      */
@@ -31,6 +31,65 @@ public class Demo6 {
         }
     }
 
+    @Test
+    public void test2(){
+        Node head = bulidListNode();
+        Node ne = new Node();
+        revHead(head,ne);
+        printNode(ne.next);
+
+    }
+
+    /**
+     * 反转链表、定义3个变量，
+     * pre 新链表的头节点
+     * cur 正在处理old链表的当前节点
+     * next 下一个节点，用于保存现场
+     */
+    @Test
+    public void test3(){
+        Node head = bulidListNode();
+        Node firsthead =  rev(head);
+        printNode(firsthead);
+    }
+
+    private Node rev(Node head) {
+        // 初始化成头节点
+        Node cur  = head.next;
+        Node pre = head;
+        // 需要第一步初始化为null
+        pre.next = null;
+        Node next;
+        while (null != cur) {
+            next = cur.next;
+
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+    private Node revHead(Node head,Node newh) {
+        Node cur = null;
+        if (head !=null && null !=head.next) {
+            cur = revHead(head.next, newh);
+        }
+        if (head.next == null){
+            // 存储尾节点
+            newh.next = head;
+            return head;
+        }else {
+            cur.next = head;
+            // 解除头部循环
+            if (head.data == null) {
+                head.next = null;
+            }
+            return head;
+        }
+
+    }
+
     /**
      * 使用递归 递归是天然的栈
      */
@@ -38,10 +97,10 @@ public class Demo6 {
     public void test1(){
         Node node = bulidListNode();
         System.out.println("从尾到头打印的队列是:");
-        printNode(node);
+        printNode1(node);
     }
 
-    private void printNode(Node node) {
+    private void printNode1(Node node) {
 
         if (node.next != null){
             printNode(node.next);
@@ -64,4 +123,5 @@ public class Demo6 {
         return head;
 
     }
+
 }

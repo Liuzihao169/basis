@@ -3,6 +3,7 @@ package alg.tooffer;
 import datastructure.stack.Node;
 
 import javax.sound.midi.Soundbank;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -32,10 +33,14 @@ public class DemoBase {
      * @param first
      */
     protected void printNode(Node first) {
-        while (null != first && first.next !=null) {
-            System.out.print(first.next.data + "\t");
+        while (null != first) {
+            System.out.print(first.data + "\t");
             first = first.next;
         }
         System.out.println();
+    }
+
+    protected void printArr(int [] arr) {
+        System.out.println(Arrays.toString(arr));
     }
 }
