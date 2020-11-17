@@ -2,8 +2,6 @@ package alg.tooffer;
 
 import datastructure.stack.Node;
 import org.junit.Test;
-import sun.awt.geom.AreaOp;
-
 /**
  * @author liuzihao
  * @create 2020-10-27-19:51
@@ -51,7 +49,6 @@ public class Demo23 extends DemoBase{
         if (p1 == p2) {
             return true;
         }
-
         }
         return false;
     }

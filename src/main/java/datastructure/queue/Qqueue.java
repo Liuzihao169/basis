@@ -12,12 +12,12 @@ import datastructure.stack.Node;
  * 队尾 rear   入队列(尾部添加)
  * 判空条件
  */
-public class Qqueue {
+public class Qqueue<T> {
 
     //队头指针
-   private Node front;
+   private Node<T> front;
     //队尾指针
-    private Node rear;
+    private Node<T> rear;
 
     //入队列
    public void  EnQueue(Object o){
@@ -39,14 +39,14 @@ public class Qqueue {
    }
 
    //出队 只需要改变头节点
-    public Object DeQueue(){
+    public T DeQueue(){
        if(isEmpty()) throw  new RuntimeException("空队列");
 
         //头节点
         Node head  =  front.next;
        //出队操作
         //目标节点 p
-        Node p = head.next;
+        Node<T> p = head.next;
         head.next =p.next;
 
         //释放p
@@ -59,9 +59,9 @@ public class Qqueue {
     }
 
     //获得队头
-    public Object getFront(){
+    public T getFront(){
         if(isEmpty()) throw  new RuntimeException("空队列");
-        return this.front.next.next.data;
+        return (T) this.front.next.next.data;
     }
 
     //判断是否为空队列
