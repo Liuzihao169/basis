@@ -46,7 +46,7 @@ public class DemoBase {
         Tnode root = new Tnode(1);
 
         Tnode tnode2 = new Tnode(2);
-        Tnode tnode3 = new Tnode(3);
+        Tnode tnode3 = new Tnode(0);
         Tnode tnode4 = new Tnode(4);
         Tnode tnode5 = new Tnode(5);
         Tnode tnode6 = new Tnode(6);
