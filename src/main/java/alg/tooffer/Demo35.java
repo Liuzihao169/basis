@@ -31,6 +31,7 @@ public class Demo35 extends DemoBase {
         ComNode oldNode = map.get("oldNode");
         ComNode newNode = map.get("newNode");
         printComNode(oldNode);
+        System.out.println();
         printComNode(newNode);
     }
 
