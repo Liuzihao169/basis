@@ -12,7 +12,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 public class MyBeanFactoryProcess implements BeanFactoryPostProcessor {
 
     public MyBeanFactoryProcess() {
-        System.out.println("MyBeanFactoryProcess。。。。。。。。创建。。。");
+        System.out.println("MyBeanFactoryProcess....创建....");
     }
 
     /**
@@ -22,6 +22,6 @@ public class MyBeanFactoryProcess implements BeanFactoryPostProcessor {
      */
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println("===============postProcessBeanFactory.....................===============");
+        System.out.println("....postProcessBeanFactory.....................");
     }
 }

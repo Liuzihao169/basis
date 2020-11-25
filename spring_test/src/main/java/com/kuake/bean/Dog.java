@@ -6,6 +6,6 @@ package com.kuake.bean;
  */
 public class Dog {
     public Dog() {
-        System.out.println("===============创建dog===============");
+        System.out.println("...创建dog...");
     }
 }

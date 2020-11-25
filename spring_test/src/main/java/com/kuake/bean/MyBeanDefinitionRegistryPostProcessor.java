@@ -15,7 +15,7 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
 
     public MyBeanDefinitionRegistryPostProcessor() {
-        System.out.println("================该方法创建=============");
+        System.out.println("...该方法创建...");
     }
 
     /**
@@ -35,6 +35,6 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println("postProcessBeanFactory==========MyBeanDefinitionRegistryPostProcessor");
+        System.out.println("postProcessBeanFactory....MyBeanDefinitionRegistryPostProcessor....");
     }
 }

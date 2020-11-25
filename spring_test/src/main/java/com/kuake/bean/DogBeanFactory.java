@@ -10,7 +10,7 @@ import org.springframework.beans.factory.FactoryBean;
 public class DogBeanFactory implements FactoryBean<Dog> {
     @Override
     public Dog getObject() throws Exception {
-        System.out.println("==========DogBeanFactory====>==Dog");
+        System.out.println("..DogBeanFactory...og");
         return new Dog();
     }
 

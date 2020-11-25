@@ -14,39 +14,39 @@ import javax.annotation.PreDestroy;
  */
 public class Car implements InitializingBean,DisposableBean,EmbeddedValueResolverAware {
     public Car() {
-        System.out.println("====================创建car=================");
+        System.out.println("...创建car...");
     }
 
     @PostConstruct
     public void post(){
-        System.out.println("======================@PostConstruct====================");
+        System.out.println("...@PostConstruct...");
     }
 
     @PreDestroy
     public void pre(){
-        System.out.println("========================@PreDestroy===============================");
+        System.out.println("...@PreDestroy...");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("=========================InitializingBean接口========afterPropertiesSet===============");
+        System.out.println("...InitializingBean接口....afterPropertiesSet...");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("=======================DisposableBean接口===========destroy===========");
+        System.out.println("...DisposableBean接口...destroy...");
     }
 
     public void init(){
-        System.out.println("==============================init方法=========================");
+        System.out.println(".....init方法....");
     }
 
     public void destory(){
-        System.out.println("===========================destory方法=============================");
+        System.out.println("....destory方法....");
     }
 
     @Override
     public void setEmbeddedValueResolver(StringValueResolver resolver) {
-        System.out.println("====================setEmbeddedValueResolver=======================");
+        System.out.println("...setEmbeddedValueResolver....");
     }
 }
