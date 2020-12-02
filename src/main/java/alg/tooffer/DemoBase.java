@@ -42,7 +42,7 @@ public class DemoBase {
      * /\  /\
      * 4 5 6 7
      */
-    public Tnode InitializeTree() {
+    protected Tnode InitializeTree() {
         Tnode root = new Tnode(1);
 
         Tnode tnode2 = new Tnode(2);
@@ -60,6 +60,58 @@ public class DemoBase {
 
         root.lchild = tnode2;
         root.rchild = tnode3;
+
+        return root;
+    }
+
+    protected Tnode InitializeTree2() {
+        Tnode root = new Tnode(1);
+
+        Tnode tnode2 = new Tnode(2);
+        Tnode tnode3 = new Tnode(3);
+        Tnode tnode4 = new Tnode(4);
+        Tnode tnode5 = new Tnode(5);
+        Tnode tnode6 = new Tnode(6);
+        Tnode tnode7 = new Tnode(7);
+
+        tnode2.lchild = tnode4;
+        tnode2.rchild = tnode5;
+
+        tnode3.lchild = tnode6;
+        tnode3.rchild = tnode7;
+
+        root.lchild = tnode2;
+        root.rchild = tnode3;
+
+        return root;
+    }
+
+    /**
+     * 初始化一个二叉搜索树
+     * @return
+     *   10
+     *   / \
+     *  6  14
+     * /\  /\
+     *4 8 12 16
+     */
+    protected Tnode initializeSortFindTree() {
+        Tnode root = new Tnode(10);
+
+        Tnode tnode6 = new Tnode(6);
+        Tnode tnode14 = new Tnode(14);
+        Tnode tnode4 = new Tnode(4);
+        Tnode tnode8 = new Tnode(8);
+        Tnode tnode12 = new Tnode(12);
+        Tnode tnode16 = new Tnode(16);
+        root.lchild = tnode6;
+        root.rchild = tnode14;
+
+        tnode6.lchild =tnode4;
+        tnode6.rchild = tnode8;
+
+        tnode14.lchild = tnode12;
+        tnode14.rchild = tnode16;
 
         return root;
     }
