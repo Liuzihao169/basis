@@ -15,7 +15,7 @@ public class CountdownlatchExample {
     public static void main(String[] args) throws Exception {
         // 设置挡板数量
         final CountDownLatch latch = new CountDownLatch(10);
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i <= 9; i++) {
             final  int num = i;
             new Thread(()->{
                 try {
@@ -32,5 +32,6 @@ public class CountdownlatchExample {
 
         latch.await();
         log.info("fish and latch count is {}",latch.getCount());
+
     }
 }

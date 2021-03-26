@@ -1,5 +1,6 @@
 package com.kuake.concurrent;
 
+import com.kuake.concurrent.utils.ZipUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -100,9 +101,15 @@ public class DemoTest {
 
     @Test
     public void test5(){
-        Integer i = 1000;
-        Integer i2 = 1000;
-        System.out.println(i.equals(i2));
+        List<String> list = Arrays.asList("1", "2", "3", "4");
+        dosome(list);
+        System.out.println(list.size());
+    }
+
+    private void dosome(List<String> list) {
+        List<String>list1 = list.subList(0,2);
+        System.out.println(list1.size());
+        System.out.println(list.size());
     }
 
     @Test
@@ -122,5 +129,10 @@ public class DemoTest {
         stream1.forEach(
             System.out::println
         );
+    }
+
+    @Test
+    public void testzip(){
+        ZipUtil.zip("/Users/liuzihao/Downloads/20210113","123.zip");
     }
 }

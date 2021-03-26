@@ -140,25 +140,34 @@ public class SortTest {
      * i             j
      * i向右边移动找比标兵小的数
      * j向左找比标兵大的数
+     * i\j 交换
+     *
      * 当i=j （位置相同时）
      * 与目标位置进行交换。
      * 剩下的数组分两边再次重复上述比较
      *
-     * 注意：
+     * 注意：(标兵在哪边往哪边靠拢)
      * a.先移动左边的标兵
-     * b.当未找到时候，一致往下找，知道最顶端
+     * b.当未找到时候，一致往下找，直到最顶端
      *
      * 编写之前可以先 自己画出比较流程，需要考虑极端情况
      */
     @Test
     public void test06() {
-        int[] arr = {1,2,9,4,1,3,2};
+        int[] arr = {1,3,6,2};
 
         genFirstArr(arr, 0, arr.length -1 );
         System.out.println("快速排序后的结果"+Arrays.toString(arr));
     }
 
-
+    @Test
+    public void test07(){
+        Integer a = null;
+        doing(a);
+    }
+   void doing(int a) {
+        System.out.println(a);
+    }
     private void genFirstArr(int[] arr, int start, int end) {
         // 递归出口 如果只剩一个数字的时候返回
         if (start >= end) {

@@ -40,7 +40,7 @@ public class CondictionExample1 {
             log.info("this is thread {} get lock",Thread.currentThread().getName());
             condition.signalAll();//唤醒在condition当中的线程,将移动到AQS队列当中，参加锁的竞争
             log.info("this is thread {} send signal",Thread.currentThread().getName());
-
+            // 释放锁之后，被唤醒
             lock.unlock();
         }).start();
     }

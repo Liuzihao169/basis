@@ -73,7 +73,7 @@ public class Demo15 {
 
     @Test
     public void test2(){
-        System.out.println(Integer.toBinaryString(-5));
+        System.out.println(Integer.toBinaryString(-1));
         System.out.println(Integer.toBinaryString(5));
         System.out.println(Integer.toBinaryString(4));
         System.out.println(4&5);

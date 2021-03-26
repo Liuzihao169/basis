@@ -1,9 +1,11 @@
 package com.kuake.concurrent;
 
+import cn.hutool.core.util.ZipUtil;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 
 /**
@@ -22,5 +24,20 @@ public class DemoTest1 {
    log.warn("warn");
 
     }
+
+    @Test
+    public void test2(){
+        //         ZipUtil.zip("/Users/liuzihao/Downloads/20210113","123.zip");
+        ZipUtil.zip("/Users/liuzihao/Downloads/1212","/Users/liuzihao/Downloads/1212.zip");
+        BigDecimal bigDecimal = new BigDecimal("1");
+        //doAdd(bigDecimal);
+        System.out.println(bigDecimal);
+    }
+@Test
+    public void doAdd(){
+        String a  ="";
+    String[] split = a.split(",");
+    System.out.println(split);
+}
 
 }
