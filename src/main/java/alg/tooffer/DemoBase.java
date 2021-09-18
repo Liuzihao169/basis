@@ -59,7 +59,7 @@ public class DemoBase {
         tnode3.rchild = tnode7;
 
         root.lchild = tnode2;
-        root.rchild = tnode3;
+      //  root.rchild = tnode3;
 
         return root;
     }

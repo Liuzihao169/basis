@@ -11,6 +11,8 @@ import org.junit.Test;
  */
 public class Demo55 extends DemoBase{
 
+    private boolean isBalance = true;
+
     /**
      * 解题思路
      * 当前最大深度h = max( h左子树, h右子树) + 1(当前节点)
@@ -32,5 +34,54 @@ public class Demo55 extends DemoBase{
         }
         // max( h左子树, h右子树) + 1(当前节点)
         return getDepth(tnode.lchild)>getDepth(tnode.rchild) ? getDepth(tnode.lchild)+1 : getDepth(tnode.rchild)+1;
+    }
+
+
+    /**
+     * 解题思路：
+     * 1、遍历左右子树，左右子树的深度不超过1 ,
+     * 如果从根节点开始遍历，会有很多节点会被重复计算
+     *    5
+     *   /\
+     *  1 3
+     * /\ /\
+     *1 2 5 6
+     *
+     * 从底部叶子节点开始计算；
+     * 后序遍历进行校验
+     */
+    @Test
+    public void test_2(){
+        Tnode root = InitializeTree();
+
+        // 后序遍历校验
+        afterOrderCheck(root);
+        System.out.println(isBalance);
+    }
+
+
+    /**
+     * 后续遍历
+     * @param root
+     * @return
+     */
+    private void afterOrderCheck(Tnode root) {
+        if (null == root) {
+            return;
+        }
+
+        afterOrderCheck(root.lchild);
+        afterOrderCheck(root.rchild);
+
+        int depthLeft = getDepth(root.lchild);
+        int depthRight = getDepth(root.rchild);
+
+
+
+       if (Math.abs(depthLeft - depthRight) >= 1){
+           System.out.println("当前节点"+root.data+ "左子树深度"+depthLeft + "右子树深度"+depthRight);
+           isBalance = false;
+       }
+
     }
 }
