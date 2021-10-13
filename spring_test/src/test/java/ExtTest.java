@@ -1,4 +1,5 @@
 import com.kuake.config.ExtConfig;
+import com.kuake.config.MyConfig1;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -10,7 +11,7 @@ public class ExtTest {
 
     @Test
     public void test() {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ExtConfig.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig1.class);
         applicationContext.close();
     }
 }
