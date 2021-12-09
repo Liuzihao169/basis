@@ -2,6 +2,7 @@ package alg.leetcode;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,10 +14,19 @@ import java.util.Set;
 public class DemoString3 {
     @Test
     public void test1(){
-        int abb = lengthOfLongestSubstring("add");
+        int abb = lengthOfLongestSubstring("abeeeefgacd");
         System.out.println(abb);
     }
 
+    /**
+     * 利用滑动窗口 startIndex、endIndex
+     * endIndex向前移动，未重复的数据存储在set当中
+     * 当  char[start] 在set中已存在，那么 end  移动到 start的位置，窗口开始重新生成...
+     * 直到end\start 到尾部
+     *
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int start  = 0;
@@ -33,4 +43,23 @@ public class DemoString3 {
         return maxlength;
 
     }
+    class Solution {
+        public int minMoves(int[] nums) {
+            if(nums.length == 1){
+                return 0;
+            }
+            int count = 0;
+            while(true){
+                Arrays.sort(nums);
+                if(nums[0] == nums[nums.length -1]){
+                    return count;
+                }
+                for(int i = 0; i < nums.length -1; i++){
+                    nums[i] = nums[i] + 1;
+                }
+                count++;
+            }
+        }
+    }
+
 }
