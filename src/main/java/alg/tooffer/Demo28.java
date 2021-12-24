@@ -4,6 +4,7 @@ import datastructure.tree.Tnode;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -129,4 +130,55 @@ public class Demo28 extends DemoBase {
         list.add(tnode1.data);
         doOrdeRightInLeft(list, tnode1.lchild);
     }
+    @Test
+    public void testSolution123(){
+        Solution123 solution123 = new Solution123();
+        solution123.permute(new int[]{1,2,3});
+        System.out.println(solution123.listAll);
+    }
+    @Test
+    public void testSolution1234(){
+        Integer [] a = new Integer[]{};
+        List<Integer> list = Arrays.asList(a);
+    }
+}
+
+
+
+
+/**
+ *
+ * 解题思路：
+ *  利用回溯法，进行每层的递归 dfs处理，
+ *  并用数组 标记使用过的节点
+ * */
+class Solution123 {
+    List<List<Integer>> listAll = new ArrayList<List<Integer>>();
+    public List<List<Integer>> permute(int[] nums) {
+        int [] flag = new int[nums.length];
+        // 利用回溯方法
+        Integer [] target = new Integer[nums.length];
+        dfs(0, nums, flag, target);
+        return listAll;
+    }
+
+    private void dfs(int index, int [] nums, int [] flag, Integer [] target){
+        // 达到目标值
+        if(index >= nums.length){
+            listAll.add(new ArrayList<>(Arrays.asList(target)));
+            return ;
+        }
+        for(int i = 0; i < nums.length; i++) {
+            if(flag[i] != 1){
+                flag[i] = 1;
+                target[index] = nums[i];
+                // 深度回溯
+                dfs(index + 1, nums, flag, target);
+                // 标记复原
+                flag[i] = 0;
+            }
+
+        }
+    }
+
 }

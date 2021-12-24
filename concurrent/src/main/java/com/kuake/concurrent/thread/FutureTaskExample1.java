@@ -2,10 +2,7 @@ package com.kuake.concurrent.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * @author liuzihao
@@ -29,7 +26,7 @@ public class FutureTaskExample1 {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main1(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         log.info("this is main");
         Future<String> submit = executorService.submit(new Mycallable(100,0));
@@ -38,7 +35,7 @@ public class FutureTaskExample1 {
         });
         Future<String> submit1 = executorService.submit(new Mycallable(100,1));
         Future<String> submit2 = executorService.submit(new Mycallable(100,2));
-        Future<String> submit3= executorService.submit(new Mycallable(10000,3));
+        Future<String> submit3= executorService.submit(new Mycallable(1000,3));
         // 获取结果就必须等待
         log.info("this is {}submit"+0,submit.get());
         log.info("this is {}submit"+1,submit1.get());
@@ -48,4 +45,20 @@ public class FutureTaskExample1 {
         System.out.println("-------------------");
         executorService.shutdown();
     }
+
+    public static void main(String[] args) throws Exception{
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        log.info("this is main");
+        CountDownLatch countDownLatch = new CountDownLatch(10);
+        Future<String> submit = executorService.submit(()->{
+            Thread.sleep(1000);
+            int i = 1/0;
+            return "123";
+        });
+        submit.get();
+        Thread.sleep(3000);
+        System.out.println("主线程执行完毕.....");
+
+    }
+
 }

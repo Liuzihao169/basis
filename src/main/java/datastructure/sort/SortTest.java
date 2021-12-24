@@ -154,10 +154,13 @@ public class SortTest {
      */
     @Test
     public void test06() {
-        int[] arr = {1,3,6,2};
+      //  int[] arr = {1,3,6,2};
+        int [] arr1 = {3,4,5,2,1};
 
-        genFirstArr(arr, 0, arr.length -1 );
-        System.out.println("快速排序后的结果"+Arrays.toString(arr));
+        genFirstArr(arr1, 0, arr1.length -1 );
+        System.out.println("快速排序后的结果"+Arrays.toString(arr1));
+
+
     }
 
     @Test
@@ -231,6 +234,20 @@ public class SortTest {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        char c ;
+        for(int i = 0; i < strs[0].length();i++ ){
+            c = strs[0].charAt(i);
+            for(int j = 1; j < strs.length;j++){
+                if( i == strs[j].length() || strs[j].charAt(i) != c){
+
+                    return  strs[0].substring(0,i);
+                }
+            }
+        }
+        return strs[0];
     }
 
 }

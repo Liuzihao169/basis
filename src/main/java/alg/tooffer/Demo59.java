@@ -3,6 +3,7 @@ package alg.tooffer;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 
 /**
@@ -35,7 +36,6 @@ public class Demo59 extends DemoBase {
 
     @Test
     public void test(){
-
         int [] arr =  new int[]{2, 3, 4, 2, 6, 2, 5, 1};
         int slidingLength = 3;
 

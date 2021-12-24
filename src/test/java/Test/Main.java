@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("执行结果:" + getValue());
     }
     private static int getValue() {
         int num = 1;

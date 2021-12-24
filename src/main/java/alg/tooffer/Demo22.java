@@ -20,7 +20,7 @@ public class Demo22 extends DemoBase {
     public void test() {
         // 生成带头节点的链表
         Node head = initFirstNode(Arrays.asList(3, 4, 5, 6, 3, 5, 6));
-        System.out.println(getReciprocalKNode(head, 10).data);
+        System.out.println(getReciprocalKNode(head, 3).data);
     }
 
     Node getReciprocalKNode(Node head, int k) {
@@ -34,11 +34,12 @@ public class Demo22 extends DemoBase {
         Node cur = node;
         // cur移动到 k-1个节点
         while (k - 1 > 0) {
-            if (null == cur) {
-                throw new RuntimeException("链表不存在倒数第"+k+"个节点");
-            }
+
             cur = cur.next;
+            k--;
         }
+
+
         // cur 与 node 同步移动
         while (null !=cur.next) {
             node =  node.next;

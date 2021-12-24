@@ -1,10 +1,15 @@
 package Test;
 
 import org.junit.Test;
+import sun.awt.geom.AreaOp;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @author hao
@@ -14,16 +19,31 @@ public class DemoTest {
 
 
     @Test
-    public void test(){
-        System.out.println(String.valueOf("adbcefg".toCharArray(),1,3));
-        int [] arr ={1,2,3,4,5,};
-        int [] arr2 ={1,2,3,4,5,};
-        List<int[]> ints = Arrays.asList(arr);
-        List<int[]> ints1 = new ArrayList<>(ints);
-        ints1.add(arr2);
-        System.out.println(arr);
+    public void test()throws Exception{
+
+        //System.out.println(testfinally());
+        b(5);
     }
 
+    void b(int b){
+        for (int i = 0; i < 5; i++) {
+            a(b+1);
+        }
+    }
+
+    void a(int b){
+        System.out.println(b);
+    }
+    public String testfinally(){
+        try {
+            int  a= 1/0;
+
+        }catch (Exception e){
+            return "123";
+        }finally {
+            return "234";
+        }
+    }
     //冒泡排序 稳定 从小到大 像泡泡一样往上升 选出大的
     @Test
     public void test2(){
@@ -185,16 +205,12 @@ public class DemoTest {
 
     @Test
     public void test3Arr(){
-        int []  a = {2,1,3};
-        int [] b = {1,3,2};
-        Arrays.sort(a);
-        Arrays.sort(b);
-        Set<int [] > set = new HashSet<>();
-        set.add(a);
-        set.add(b);
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
-        System.out.println(set.size());
+        StringBuilder stringBuilder = new StringBuilder("123");
+        StringBuilder delete = stringBuilder.delete(2,3);
+        System.out.println(delete);
+        String a = "123";
+        String substring = a.substring(0, 1);
+        System.out.println(substring);
 
     }
 

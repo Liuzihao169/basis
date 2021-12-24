@@ -40,12 +40,12 @@ public class Demo7 {
         for (int i = 0; i < inOrder.length; i++) {
             map.put(inOrder[i],i);
         }
-        Tnode tnode = buildTree(preOrder,0,preOrder.length - 1, inOrder, 0,inOrder.length - 1,map);
+        Tnode tnode = buildTree(preOrder,0,preOrder.length - 1, 0,inOrder.length - 1,map);
         TestSortTree testSortTree = new TestSortTree();
         testSortTree.InOrder(tnode);
     }
 
-    public Tnode buildTree(int[] preorder, int preorderStart, int preorderEnd, int[] inorder, int inorderStart, int inorderEnd, Map<Integer, Integer> indexMap) {
+    public Tnode buildTree(int[] preorder, int preorderStart, int preorderEnd, int inorderStart, int inorderEnd, Map<Integer, Integer> indexMap) {
         if (preorderStart > preorderEnd) {
             return null;
         }
@@ -57,8 +57,8 @@ public class Demo7 {
             int rootIndex = indexMap.get(rootVal);
             // 从开始位置往右推leftNodes     //从结束位置往左推
             int leftNodes = rootIndex - inorderStart,rightNodes = inorderEnd - rootIndex;
-            Tnode leftSubtree = buildTree(preorder, preorderStart + 1, preorderStart + leftNodes, inorder, inorderStart, rootIndex - 1, indexMap);
-            Tnode rightSubtree = buildTree(preorder, preorderEnd - rightNodes + 1, preorderEnd, inorder, rootIndex + 1, inorderEnd, indexMap);
+            Tnode leftSubtree = buildTree(preorder, preorderStart + 1, preorderStart + leftNodes, inorderStart, rootIndex - 1, indexMap);
+            Tnode rightSubtree = buildTree(preorder, preorderEnd - rightNodes + 1, preorderEnd,  rootIndex + 1, inorderEnd, indexMap);
             root.lchild = leftSubtree;
             root.rchild = rightSubtree;
             return root;
