@@ -13,6 +13,8 @@ import java.util.stream.IntStream;
  * -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=.
  * -Xmx512M 最大
  * -Xmx100M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./a/c/bbb.hprof
+ * -XX:MaxDirectMemorySize=10m
+ * -Xmx512M -XX:+HeapDumpOnOutOfMemoryError -XX:MaxDirectMemorySize=10m -XX:HeapDumpPath=./a/c/direct.hprof
  */
 public class OomDemo {
     public static void main(String[] args) {
