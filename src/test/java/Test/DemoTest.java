@@ -110,12 +110,7 @@ public class DemoTest {
 
     @Test
     public void test7(){
-
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("123");
-        linkedList.add("456");
-        linkedList.add("789");
-        System.out.println(linkedList.pollLast());
+        System.out.println("123".substring(0, 1));
     }
 
     @Test

@@ -1,6 +1,7 @@
-package com.kuake.concurrent.Controller;
+package com.kuake.concurrent.controller;
 
 import com.kuake.concurrent.service.ProdectService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2020-04-11-18:20
  */
 @RestController
+@Slf4j
 public class MyController {
 
     @Autowired
@@ -18,6 +20,7 @@ public class MyController {
 
     @RequestMapping("/hello")
     public String hello(){
+        log.info("123123");
         return "hello world !";
     }
 
@@ -28,8 +31,6 @@ public class MyController {
         }catch (Exception e){
 
         }
-
-
         return "hello world!";
     }
 }

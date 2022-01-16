@@ -19,10 +19,10 @@ spring:
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
     username: root
-    password: kuake@123456
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://188.131.151.191:3306/demo1?characterEncoding=utf-8
+    url: jdbc:mysql://112.124.59.238:3306/demo1?characterEncoding=utf-8
   profiles:
     active: dev
 #  redis:
@@ -30,3 +30,7 @@ spring:
 server:
   port: 8888
 #    port: 6379
+
+# 每秒产生30个令牌桶
+rate:
+  limiter: 3
