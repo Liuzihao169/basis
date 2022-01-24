@@ -31,12 +31,12 @@ public class LogAdvice {
 		System.out.println(joinPoint.getSignature().getName()+"logAfter....");
 	}
 	
-	@AfterReturning(value="pointcut()",returning="result")
+	// @AfterReturning(value="pointcut()",returning="result")
 	public void logReturn(Object result){
 		System.out.println("logReturn....返回值"+result);
 	}
 	
-	@AfterThrowing(value="pointcut()",throwing="exception")
+	// @AfterThrowing(value="pointcut()",throwing="exception")
 	public void logException(JoinPoint joinPoint,Exception exception){
 		System.out.println(joinPoint.getSignature().getName()+"logException...."+exception);
 	}
