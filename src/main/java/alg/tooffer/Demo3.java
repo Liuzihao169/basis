@@ -45,6 +45,23 @@ public class Demo3 {
      */
     @Test
     public void test2(){
-
+        int repeatNumber = findRepeatNumber(new int[]{3, 4, 2, 0, 0, 1});
+    }
+    public int findRepeatNumber(int[] nums) {
+        int temp = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(i == nums[i]){
+                continue;
+            }
+            int mun = nums[i];
+            if(nums[mun] == mun){
+                return nums[mun];
+            }
+            temp =nums[mun];
+            nums[mun] = nums[i];
+            nums[i] = temp;
+        }
+        return -1;
     }
 }
+
