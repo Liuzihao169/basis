@@ -13,7 +13,10 @@ import org.junit.Test;
 public class Demo13 {
     @Test
     public void test(){
-        System.out.println(_genCount(9, 8, 14));
+        //System.out.println(_genCount(9, 8, 14));
+        Solution_offer13 solution_offer13 = new Solution_offer13();
+        System.out.println(solution_offer13.movingCount(3, 2, 17));
+
     }
 
     private int _genCount(int m, int n, int k) {
@@ -82,3 +85,64 @@ public class Demo13 {
     }
 
 }
+
+class Solution_offer13 {
+    int length = 0;
+    int m1 = 0;
+    int n1 = 0;
+    public int movingCount(int m, int n, int k) {
+        m1= m;
+        n1 = n;
+        int [][] flag = new int[m][n];
+        dfs(0,0,k,flag);
+        return length;
+    }
+
+    private void dfs(int curm, int curn ,int k , int [][] flag){
+
+        // 越界
+        if(curm < 0 || curm > m1- 1 || curn <0 || curn > n1 -1){
+            return;
+        }
+        // 不符合规则
+        if(getTotal(curm,curn)>k){
+            return;
+        }
+        // 已被访问过
+        if(flag[curm][curn] != 1){
+            length++;
+        }
+
+        // 设标记
+        flag[curm][curn] = 1;
+
+
+        // 访问
+        dfs(curm,curn + 1,k,flag);
+        dfs(curm,curn - 1,k,flag);
+        dfs(curm + 1,curn,k,flag);
+        dfs(curm - 1,curn,k,flag);
+
+
+
+    }
+
+
+    // 求当前坐标和值
+    private int getTotal(int i,int j ){
+        return getOntTotal(i)+getOntTotal(j);
+    }
+    private int getOntTotal(int a){
+        if(a < 10){
+            return a;
+        }
+        String a1 = a +"";
+
+        int a2 = 0;
+        for(int i = 0 ; i < a1.length(); i++){
+            a2 = a2 + (a1.charAt(i)-'0');
+        }
+        return a2;
+    }
+}
+

@@ -38,6 +38,14 @@ public class Demo15 {
         System.out.println(-5+"中1的个数为" + bitCount(-5) + "\n" + Integer.toBinaryString(-5));
 
     }
+
+
+    @Test
+    public void test3(){
+        System.out.println(Integer.toBinaryString(-5));
+    }
+
+
     int getCountForOne1(int n) {
         int count = 0;
         while (n != 0){
