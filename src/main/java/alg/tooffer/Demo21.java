@@ -33,6 +33,12 @@ public class Demo21 extends DemoBase{
 
     }
 
+    @Test
+    public void test001(){
+        Solution_offer23 solution_offer23 = new Solution_offer23();
+        solution_offer23.exchange(new int[]{1,2,3,4});
+    }
+
     private void traverse(int [] arr) {
         if (null == arr) {
             throw new RuntimeException("");
@@ -71,3 +77,42 @@ public class Demo21 extends DemoBase{
     }
 }
 
+class Solution_offer23 {
+    public int[] exchange(int[] nums) {
+        int start = 0;
+        int end = nums.length -1;
+        while(start < nums.length/2 || end > nums.length/2){
+
+            int ts = nums[start];
+            while(start < nums.length - 1 && ts%2 !=0){
+                ts = nums[start];
+                if(ts %2 == 0){
+                    break;
+                }
+                start++;
+            }
+
+            if(start > nums.length/2 ){
+                break;
+            }
+
+            int te = nums[end];
+            while(end >=1 ){
+                te = nums[end];
+                if(te % 2 == 1){
+                    break;
+                }
+                end--;
+            }
+
+            if(end < nums.length /2 ) {
+                break;
+            }
+
+            int tmep = nums[start];
+            nums[start]= nums[end];
+            nums[end]= tmep;
+        }
+        return nums;
+    }
+}

@@ -17,6 +17,13 @@ import java.util.List;
  */
 public class Demo12 {
 
+
+    @Test
+    public void test111(){
+        System.out.println(32&4);
+    }
+
+
     char[][] str = new char[][]{
             {'a','b','t','g'},
             {'c','f','c','s'},
@@ -154,4 +161,5 @@ class Solution_0ffer12 {
         // 复原
         falge[i][j] = 0;
     }
+
 }
