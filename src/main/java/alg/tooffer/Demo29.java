@@ -2,6 +2,12 @@ package alg.tooffer;
 
 import org.junit.Test;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author liuzihao
  * @create 2020-11-05-20:37
@@ -9,6 +15,18 @@ import org.junit.Test;
  * 输入一个矩阵、按照从外像里面以顺时针的孙婿打印出每一个数字
  */
 public class Demo29 extends DemoBase{
+
+
+    @Test
+    public void test2(){
+        int [][] arr = new int[][]{
+                {1, 2, 8, 9},
+                {2, 4, 9, 12},
+                {4, 7, 10, 13}
+        };
+        Solution_offer29 solution_offer29 = new Solution_offer29();
+        solution_offer29.spiralOrder(arr);
+    }
     /**
      * 解决思路:
      * 定义上、下、左、右的边界，然后每次执行完成后对应的边界缩小
@@ -83,4 +101,59 @@ public class Demo29 extends DemoBase{
     }
 
 
+}
+
+class Solution_offer29 {
+    public int[] spiralOrder(int[][] matrix) {
+        if(matrix == null){
+            return new int [0];
+        }
+        int [] target = new int[matrix.length * matrix[0].length];
+        int total = matrix.length * matrix[0].length;
+        int updownOffset = 0;
+        int leftRightOffset = 0;
+        // 宽度
+        int w = matrix[0].length;
+        // 高度
+        int h = matrix.length;
+
+        int index = 0;
+        while(updownOffset <= matrix.length/2){
+
+            // 上 左到右
+            for(int i = leftRightOffset; i < w-leftRightOffset; i++){
+                target[index++] = matrix[updownOffset][i];
+            }
+            if(index>=total-1){
+                break;
+            }
+
+            // 右 上到下
+            for(int i = updownOffset + 1; i < h -updownOffset; i++){
+                target[index++] = matrix[i][w-leftRightOffset-1];
+            }
+            if(index>=total-1){
+                break;
+            }
+
+            // 下 右到左
+            for(int i = w - leftRightOffset-2 ;i>=leftRightOffset; i--){
+                target[index++] = matrix[h-updownOffset-1][i];
+            }
+            if(index>=total-1){
+                break;
+            }
+
+            // 左 下到上
+            for(int i = h - updownOffset -2; i >=1 + updownOffset ;i--){
+                target[index++] = matrix[i][leftRightOffset];
+            }
+            if(index>=total-1){
+                break;
+            }
+            updownOffset++;
+            leftRightOffset++;
+        }
+        return target;
+    }
 }
