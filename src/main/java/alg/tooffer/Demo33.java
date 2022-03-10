@@ -21,6 +21,10 @@ public class Demo33 extends DemoBase {
         System.out.println(result);
         boolean lasterOrder = isLasterOrder(data1, 0, data1.length - 1);
         System.out.println(lasterOrder);
+
+        Solution_offer_33 solution_offer_33 = new Solution_offer_33();
+        solution_offer_33.verifyPostorder( new int []{4, 6, 7, 5});
+
     }
 
     private boolean isLasterOrder(int[] data, int start, int end) {
@@ -53,5 +57,34 @@ public class Demo33 extends DemoBase {
             }
         }
         return null;
+    }
+}
+
+class Solution_offer_33 {
+    public boolean verifyPostorder(int[] postorder) {
+
+        return doVerifyPostorder(0,postorder.length -1,postorder);
+    }
+
+    public boolean doVerifyPostorder(int start, int end, int [] postorder){
+        if(start>=end){
+            return true;
+        }
+        int root = postorder[end];
+        int s = end -1;
+        boolean flag = false;
+        // 找分界线
+        while(s >=start){
+            if(postorder[s] < root){
+                flag = true;
+                break;
+            }
+
+            s--;
+        }
+        if(!flag){
+            return false;
+        }
+        return doVerifyPostorder(start, s,postorder) && doVerifyPostorder(s+1,end-1,postorder);
     }
 }
